@@ -23,7 +23,7 @@
     </section>
     <section class="section split" aria-labelledby="function">
       <div><p class="eyebrow">01 / What it does</p><h2 id="function">Calendar 在这里做什么</h2><p>经账号持有人授权后，程序读取日历列表及任务所需的事件，帮助模型执行日程查询任务。运行记录用于检查实际工具调用及结果。</p></div>
-      <div><h3>当前配置</h3><p>已有授权仅允许读取日历。维护写授权和专用测试日历仍在准备中。</p><h3>拟增加的维护能力</h3><p>仅在显式绑定的专用测试日历中，验证工程测试事件的创建、修改、恢复和重跑。现有 primary 日历不作为 reset 目标。</p></div>
+      <div><h3>当前配置</h3><p>任务查询使用只读凭据。宿主维护使用独立的事件写凭据，并绑定专用测试日历。</p><h3>已验证的维护范围</h3><p>已在专用测试日历完成两轮工程事件的标题、地点修改与恢复，以及有归属的新增事件清理和重复 reset。现有 primary 日历不作为维护目标。</p></div>
     </section>
     <section class="section" aria-labelledby="data-flow">
       <p class="eyebrow">02 / Data flow</p><h2 id="data-flow">数据会经过模型服务，并写入轨迹</h2><p>Calendar 工具返回的事件内容可能进入后续模型请求。项目保存完整请求、工具返回和模型响应；它们可能含有日历原始内容，而不只是匿名统计。</p>
