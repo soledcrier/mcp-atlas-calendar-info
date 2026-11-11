@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="mcp-atlas 独立研究接入程序的使用范围、资源授权、模型调用与恢复边界说明。">
+  <title>使用条款 · mcp-atlas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <div class="draft">独立研究接入 · 任务运行、reset 验证与审计</div>
+  <header class="site-header wrap"><a class="brand" href="index.html">mcp-atlas <span>RESEARCH INTEGRATION</span></a><nav aria-label="主导航"><a href="index.html">项目说明</a><a href="privacy.html">隐私政策</a><a href="terms.html" aria-current="page">使用条款</a></nav></header>
+  <main id="main" class="wrap document">
+    <p class="eyebrow">Terms / Research integration</p><h1>使用条款</h1><p class="meta">适用程序：mcp-atlas · 版本日期：2026-11-11</p>
+    <h2>1. 程序与使用范围</h2>
+    <p>mcp-atlas 是独立运行的研究接入程序，用于执行工具任务、记录模型与工具交互，并验证受控测试资源的 reset 和重跑。它不是 Scale AI 或 Google 提供的官方 Agent 产品。本说明网站不提供面向公众的 Calendar 访问服务。</p>
+    <h2>2. 账号与资源授权</h2>
+    <p>操作者只应配置自己有权访问和处理的账号、日历及测试数据。Google 账号持有人负责完成授权；提供一个 API 连接不表示已经授予所有数据用途、人工读取或再分发的许可。</p>
+    <p>Calendar 当前凭据仅支持读取。未来维护写操作应绑定专用测试日历和明确资源范围，并经账号持有人同意。Google OAuth 的账号级权限与程序的资源范围限制需要分别核实。</p>
+    <h2>3. 模型处理与运行记录</h2>
+    <p>任务内容和 Calendar 工具返回可能发送到操作者指定的模型服务，并保存为完整轨迹。运行前应阅读 <a href="privacy.html">隐私政策</a>中对数据类型、接收方、保存和删除的说明。Calendar 内容及相应轨迹仅用于任务运行、reset 验证与审计，不用于模型训练。</p>
+    <h2>4. 维护操作和恢复边界</h2>
+    <p>reset 是有资源边界和快照校验的工程恢复流程，不提供任意 SaaS 的全量回滚保证。Calendar 的 primary 日历不作为 reset 目标。未核实归属的对象、未知写入结果及不支持的恢复操作应停止并由操作者检查，避免覆盖其他数据。</p>
+    <h2>5. 结果和外部服务</h2>
+    <p>模型回答可能有误，工具调用也可能因权限、配额、数据版本、网络或外部服务状态失败。操作者应检查实际工具返回、运行状态及恢复验证结果。一次连接成功、一次任务完成或一次 reset 通过均不表示全部 benchmark 任务已经通过。</p>
+    <h2>6. 停止使用与联系</h2>
+    <p>可以停止运行程序并撤销 Google 访问授权。已有轨迹、快照和备份的清理需另行处理，详见隐私政策。项目由 GitHub 用户 soledcrier 管理，联系邮箱为 <a href="mailto:mirarchibowery@gmail.com">mirarchibowery@gmail.com</a>。</p>
+    <h2>7. 发布与变更</h2>
+    <p>程序能力和外部服务可能发生变化。数据用途、接收方或权限发生实质变化时，应先更新说明并取得必要的同意，再实施相应变更。公开网站本身不代表 Google 已审核本应用，也不代表已经取得 Calendar 写权限。</p>
+  </main>
+  <footer class="site-footer wrap"><p>mcp-atlas · 使用条款</p><p><a href="index.html">项目说明</a> · <a href="privacy.html">隐私政策</a></p></footer>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="mcp-atlas 本地研究接入说明：Google Calendar 工具调用、执行轨迹及专用测试资源的恢复验证。">
+  <title>mcp-atlas · 项目说明</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">跳到正文</a>
+  <div class="draft">独立研究接入 · 任务运行、reset 验证与审计</div>
+  <header class="site-header wrap">
+    <a class="brand" href="index.html">mcp-atlas <span>RESEARCH INTEGRATION</span></a>
+    <nav aria-label="主导航"><a href="index.html" aria-current="page">项目说明</a><a href="privacy.html">隐私政策</a><a href="terms.html">使用条款</a></nav>
+  </header>
+  <main id="main" class="wrap">
+    <section class="hero" aria-labelledby="intro">
+      <div><p class="eyebrow">Google Calendar integration</p><h1 id="intro">让工具执行过程<br>可以检查与重现。</h1><p class="lead">mcp-atlas 是一套由项目操作者管理的研究接入程序，用于运行 MCP-Atlas 工具任务，保存模型与工具交互轨迹，并验证专用测试资源的 reset 与重跑。</p><div class="actions"><a href="privacy.html">了解数据如何处理 →</a><a href="terms.html">查看使用范围 →</a></div></div>
+      <aside class="note"><strong>本接入程序与官方 benchmark 的关系</strong><p>这是独立的研究部署说明。MCP-Atlas benchmark 来源为 Scale AI；本接入程序不代表 Scale AI 或 Google。</p><p class="small"><a href="https://github.com/scaleapi/mcp-atlas">查看 benchmark 官方源码</a></p></aside>
+    </section>
+    <section class="section split" aria-labelledby="function">
+      <div><p class="eyebrow">01 / What it does</p><h2 id="function">Calendar 在这里做什么</h2><p>经账号持有人授权后，程序读取日历列表及任务所需的事件，帮助模型执行日程查询任务。运行记录用于检查实际工具调用及结果。</p></div>
+      <div><h3>当前配置</h3><p>已有授权仅允许读取日历。维护写授权和专用测试日历仍在准备中。</p><h3>拟增加的维护能力</h3><p>仅在显式绑定的专用测试日历中，验证工程测试事件的创建、修改、恢复和重跑。现有 primary 日历不作为 reset 目标。</p></div>
+    </section>
+    <section class="section" aria-labelledby="data-flow">
+      <p class="eyebrow">02 / Data flow</p><h2 id="data-flow">数据会经过模型服务，并写入轨迹</h2><p>Calendar 工具返回的事件内容可能进入后续模型请求。项目保存完整请求、工具返回和模型响应；它们可能含有日历原始内容，而不只是匿名统计。</p>
+      <ol class="flow" aria-label="日历任务数据流">
+        <li><span class="step">01</span><b>Google Calendar</b>授权范围内的日历与事件</li>
+        <li><span class="step">02</span><b>MCP 工具</b>查询或显式授权的维护操作</li>
+        <li><span class="step">03</span><b>执行程序 / LiteLLM</b>组织模型与工具交互</li>
+        <li><span class="step">04</span><b>配置的模型服务</b>处理任务上下文并返回结果</li>
+        <li><span class="step">05</span><b>操作者的运行存储</b>轨迹、结果及维护快照</li>
+      </ol>
+    </section>
+    <section class="section split" aria-labelledby="control">
+      <div><p class="eyebrow">03 / Your controls</p><h2 id="control">授权与数据管理</h2><p>Google 授权由账号持有人完成。授权可以在 <a href="https://myaccount.google.com/connections">Google 账号连接管理</a>中撤销。撤销授权不会自动删除已保存的轨迹或快照，需由操作者清理。</p><p>本说明网站没有登录、上传表单、统计脚本或 Calendar API 调用。</p></div>
+      <div><h3>联系项目操作者</h3><p><a href="mailto:mirarchibowery@gmail.com">mirarchibowery@gmail.com</a></p><p class="small">项目由 GitHub 用户 soledcrier 管理。</p><h3>Google 数据使用边界</h3><p>Calendar 内容及其派生轨迹仅用于任务运行、reset 验证与审计，不用于模型训练。完整数据处理方式见隐私政策。</p></div>
+    </section>
+  </main>
+  <footer class="site-footer wrap"><p>mcp-atlas · 独立研究部署</p><p><a href="privacy.html">隐私政策</a> · <a href="terms.html">使用条款</a> · 更新于 2026-11-11</p></footer>
+</body>
+</html>
